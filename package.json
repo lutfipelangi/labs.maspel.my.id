@@ -1,0 +1,40 @@
+{
+  "name": "tokengratis-id",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Aggregator direktori free-tier & free-credit LLM API (audience Indonesia) — transparan, bukan verifier.",
+  "license": "MIT",
+  "author": "Raymond Chin",
+  "homepage": "https://tokengratis.id",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raymondchins/tokengratis-id"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "sync": "node scripts/sync.mjs",
+    "sync:opensource": "node scripts/sync-opensource.mjs",
+    "test": "node scripts/lib/shape-guard.mjs --selftest && node scripts/lib/diff-guard.mjs --selftest && node scripts/lib/quarantine.mjs --selftest && node scripts/lib/source-sanity.mjs --selftest && node scripts/adapters/cheahjs.mjs --selftest && node scripts/adapters/mnfst.mjs --selftest && node scripts/adapters/openrouter.mjs --selftest && node lib/seo.mjs --selftest && node scripts/lib/merge.mjs && node scripts/audit-dupes.mjs"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "next": "^16.0.0",
+    "next-view-transitions": "^0.3.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "resend": "^6.12.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.6.0"
+  }
+}

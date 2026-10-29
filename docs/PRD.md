@@ -1,0 +1,211 @@
+# PRD — tokengratis.id
+
+> Directory free tier & free credits API LLM, di-aggregate otomatis dari sumber yang udah dipercaya komunitas. Audience Indonesia. Social/branding project, bukan startup.
+>
+> **⚠️ Update 2026-06-01 (lihat docs/log.md):** Schema & scope direvisi setelah validasi sumber. Anchor data = `mnfst/awesome-free-llm-apis` (`data.json`). Field `akses Indonesia` / `butuh CC` / `butuh HP` **DIBUANG** — ga ada sumber yang track terstruktur (→ "Unknown" bertaburan = UI jelek). Info itu kalau ada tetep tampil sebagai teks `description`. Bagian di bawah yang nyebut field/filter/sumber itu = historis; yang berlaku = `lib/types.ts` + CLAUDE.md.
+>
+> **⚠️ Update 2026-06-14:** Sinkron PRD ke realita: (1) **4 sumber LLM live** (mnfst + freellm + cheahjs + openrouter) + enrichment models.dev + LLM fallback — §10 di-update. (2) Domain kedua **Direktori Open Source Indonesia** (`/opensource`, sumber `IndopenSource/awesome-indonesia` + GitHub API) ditambah ke scope — §4, §6b, §10b, §13. (3) Bahasa anti-halusinasi diselaraskan: field absent = **kolom ga dibikin**, zero "Unknown".
+
+---
+
+## 1. Tujuan
+
+Bikin satu tempat di mana developer, mahasiswa, dan indie builder bisa cepet nemu **resource AI yang bisa dipake gratis buat prototyping** — tanpa harus ngubek 12 halaman docs, Reddit, atau Discord.
+
+Yang bikin beda dari directory lain: **Indonesia-first**. Fokus ke pertanyaan "ini beneran bisa gw akses dari Indonesia ga?" (region block, butuh CC internasional, butuh nomor non-+62).
+
+Ini proyek komunitas / branding. **Bukan** produk yang dimonetisasi, bukan startup. Optimasi utamanya: selalu fresh, jujur, dan maintenance mendekati nol.
+
+---
+
+## 2. Prinsip inti (non-negotiable)
+
+**Situs ini AGGREGATOR, bukan VERIFIER.**
+
+Artinya:
+
+- Kita **tidak** ngeklaim "verified by us". Kita kumpulin data dari sumber yang udah maintain manual, lalu tampilin dengan **atribusi + link sumber + waktu sync**.
+- Trust dateng dari **transparansi**, bukan dari klaim. User harus selalu bisa lihat: data ini dari mana, terakhir di-sync kapan, dan klik ke sumber aslinya.
+- **Anti-halusinasi adalah aturan nomor satu.** Lihat Section 7. Kalau sumber ga nyediain suatu info terstruktur → **kolomnya ga dibikin** (bukan sel "Unknown" kosong). Lebih baik nampilin yang real daripada nebak.
+
+---
+
+## 3. Target user
+
+- Developer yang mau prototyping tanpa bayar
+- Mahasiswa & peserta hackathon
+- Indie hacker / solo builder
+- Founder early-stage yang nyari credits
+
+---
+
+## 4. Scope MVP
+
+### Masuk (v1)
+
+1. Halaman directory — list semua provider/offer, bisa di-filter.
+2. Halaman detail per provider — semua field (Section 6).
+3. Filter & search (Section 5).
+4. Pipeline aggregator otomatis yang sync dari sumber tiap malam (Section 8).
+5. Label kejujuran data: "Synced [tanggal] dari [sumber]" + link.
+6. Framing Indonesia-first (Section 9).
+7. **Direktori "Proyek Open Source Indonesia"** (`/opensource`) — domain kedua, TERPISAH dari directory LLM. Sama prinsipnya: aggregator, bukan verifier. Detail Section 6b + 10b.
+
+### TIDAK masuk v1 (ditunda sampai ada traffic)
+
+- ❌ Community submission form
+- ❌ Voting / reputation / badges / "trusted verifier"
+- ❌ Komentar
+- ❌ User account / auth
+- ❌ Admin panel
+- ❌ Monetisasi (sponsored, newsletter, dll)
+
+Alasan: semua itu butuh komunitas yang udah jalan dulu. Hari pertama belum ada. Jangan bangun infra yang nungguin orang.
+
+> Catatan penting: PRD lama gw ada "Verification System (Admin Verified / Community Verified)". **Itu dibuang.** Diganti jadi **"Synced"** karena situs ini fully automated dan ga ada manusia yang verify. Jangan pakai kata "Verified" di mana pun.
+
+---
+
+## 5. Search & filter (REVISED — implemented)
+
+**Search:** by nama provider atau nama/id model.
+
+**Filter:**
+
+- Kategori provider: `Provider API` / `Inference`
+- Modality (facet, di-derive dari model): Text / Vision / Image / Audio / Video / Code / Embeddings / Reranking — cuma yang ada di data yang muncul.
+
+_(Filter lama: akses-Indonesia / no-CC / no-HP / tipe-offer / API-tersedia → DIBUANG. Sumber ga track field-nya terstruktur.)_
+
+---
+
+## 6. Field per listing (REVISED — schema canonical = `lib/types.ts`)
+
+**Provider:** name · category (`provider_api`/`inference_provider`) · country + flag (HQ, BUKAN akses) · url (halaman API key) · baseUrl · **description** (teks apa adanya dari sumber — sering memuat catatan "no credit card"/expiry/region) · modalities (facet) · modelCount · maxContext · **models[]** · source (nama+link) · syncedAt + sourceUpdatedAt.
+
+**Model:** id · name · context · maxOutput · modality · rateLimit.
+
+Semua field di atas BENERAN ada di sumber → **ga ada "Unknown"**. Field yang absent (mis. context ga ditulis) → render "—" / ga ditampilin, bukan kolom "Unknown". Info CC/HP/region yang ga terstruktur **tetap utuh** di `description`.
+
+---
+
+## 6b. Direktori Open Source — field per proyek (schema = `lib/opensource-types.ts`)
+
+Domain **terpisah** dari Provider LLM (jangan dicampur ke `lib/types.ts`). Tiap proyek nge-link keluar ke GitHub (bukan route detail internal). Semua field BENERAN ada di GitHub REST API `/repos/{owner}/{repo}`; field `null` = emang kosong di sumber → **ga di-render**, bukan sel "Unknown".
+
+**OpenSourceProject:** slug (`owner/repo`) · fullName · name · owner + ownerUrl + ownerAvatar · url (repo) · homepage (nullable) · description (nullable) · language (nullable) · stars · forks · openIssues · license (SPDX, null kalau NOASSERTION) · topics[] · archived · pushedAt · createdAt · sources[] (provenance) · syncedAt.
+
+---
+
+## 7. Aturan kejujuran data (anti-halusinasi)
+
+Ini bagian paling krusial. Pipeline boleh pakai LLM buat extract data dari halaman, **dengan aturan keras:**
+
+1. **Extract-or-skip.** Kalau sebuah info ga eksplisit tertulis di sumber → field-nya `null` dan **ga di-render** (kolom ga dibikin). **DILARANG infer, nebak, atau ngelengkapin.** Ga ada sel "Unknown" kosong di UI.
+2. **Simpan provenance.** Tiap entry simpan sumber + URL + waktu sync (`sources[]`), biar bisa diaudit.
+3. **Sync ≠ assert.** Pas halaman sumber berubah, sistem cukup **update + tandai "source updated"**. JANGAN bikin klaim baru yang ga ada di sumber.
+4. **Atribusi selalu tampil.** Tiap data harus kelihatan dari mana asalnya.
+5. Info yang ga pernah terstruktur di sumber (CC required, akses Indonesia, verif HP) → **ga dijadiin field/kolom sama sekali** (descoped, lihat §9). Kalau kebetulan ada di prosa sumber → tampil apa adanya di `description`, bukan Yes/No palsu.
+
+Mantra: **lebih baik nampilin yang real daripada bikin kolom yang isinya tebakan.**
+
+---
+
+## 8. Cara kerja (high-level, ga teknis)
+
+Pipeline jalan otomatis, **tanpa manusia**, dijadwal tiap malam:
+
+1. **Ambil** — tarik data dari daftar sumber (Section 10).
+2. **Rapihin** — samain formatnya ke struktur field di Section 6.
+3. **Gabung & dedupe** — banyak provider muncul di beberapa sumber; gabung jadi satu entry, simpan semua sumbernya.
+4. **Extract** (opsional, kalau perlu detail tambahan) — pakai LLM dengan aturan Section 7.
+5. **Cek perubahan** — simpan "sidik jari" tiap halaman sumber; kalau berubah, tandai untuk re-sync.
+6. **Build ulang situs** — situs di-generate ulang tiap malam, otomatis fresh.
+
+User ga pernah lihat proses ini. Mereka cuma lihat directory yang selalu update.
+
+---
+
+## 9. Framing Indonesia (REVISED — descoped)
+
+Status akses-per-provider dari Indonesia **DIBUANG** sebagai field/badge — ZERO sumber yang track-nya terstruktur, jadi semua bakal jadi ❓ "belum dikonfirmasi" (lawan prinsip "ga nampilin yang nebak"). 
+
+"Indonesia-first" sekarang = **audience & antarmuka Bahasa Indonesia**, bukan klaim filtering akses. Kalau suatu provider punya region block yang eksplisit di sumber (mis. Gemini "unavailable in EU/UK"), itu muncul apa adanya di `description`. Kalau nanti mau hidupin sinyal akses ID lagi → harus lewat layer editorial manual (lihat keputusan di docs/log.md).
+
+---
+
+## 10. Sumber data (REVISED — 4 sumber live per 2026-06-10)
+
+**Anchor (live):** `github.com/mnfst/awesome-free-llm-apis` — JSON bersih (`data.json`), prioritas #1 buat provider non-openrouter, model-level lengkap. `JSON.parse` langsung.
+
+**Sumber live lain (semua di-ingest via `scripts/adapters/*.mjs`, jalan paralel):**
+
+1. **freellm.net** (`freellm.mjs`) — HTML table server-rendered, di-parse regex (no cheerio/browser). Kuat di context + modality.
+2. **cheahjs/free-llm-api-resources** (`cheahjs.mjs`) — README markdown, cuma section "Free Providers". Kuat di rate limit presisi.
+3. **openrouter.ai/api/v1/models** (`openrouter.mjs`) — JSON live API (no auth), filter `:free`, authoritative buat provider `openrouter`.
+
+Merge = gap-fill by priority (`scripts/lib/merge.mjs`); enrichment context/maxOutput dari **models.dev** (`scripts/lib/enrich.mjs`); LLM fallback Claude Haiku (`scripts/lib/llm-fallback.mjs`) re-parse sumber unstructured kalau regex drift.
+
+**Belum di-ingest (markdown, butuh parser):** amardeeplakshkar/awesome-free-llm-apis, aicredits.dev (llms.txt, scope startup-credits lebih luas).
+
+Verdict riset: CC-required / phone-required / akses-Indonesia **ga pernah** jadi field terstruktur di sumber manapun → ga di-model. Yang reliable: provider, model, context, modality, rate limit, signup url.
+
+**Lisensi & atribusi sumber (penting buat redistribusi):**
+
+- Yang di-redistribusi cuma **fakta** (nama provider, context window, rate limit, signup URL) — bukan teks kurasi sumber — selalu dengan **atribusi + link balik** ke sumber asli (lihat `components/Footer.tsx` + `sources[]` provenance per provider). Fakta teknis pada dasarnya tidak hak-cipta-able; tetap kita kredit penuh.
+- `mnfst/awesome-free-llm-apis` — **CC0-1.0** (public domain). Anchor source, paling bebas.
+- `cheahjs/free-llm-api-resources` — **no license** (default all-rights-reserved). Cuma fakta (rate limit, context) yang di-surface ulang dengan atribusi; ga nyalin prosa/kurasinya.
+- `freellm.net` — ToS-nya melarang scraping. Adapter HTML tetap dipakai (datanya juga udah live di situs publik), tapi ini **judgment call sadar** pemilik proyek, didokumentasikan di sini. Kalau sumber minta turun → drop adapternya (`scripts/adapters/freellm.mjs`, lepas dari `scripts/sync.mjs`).
+- `openrouter.ai/api/v1/models` — API publik tanpa auth; dipakai sebagaimana mestinya (kita directory yang nunjuk KE openrouter, bukan layanan saingan).
+- `models.dev` (`api.json`) — enrichment metadata teknis (context/maxOutput) doang, bukan sumber discovery.
+
+---
+
+## 10b. Sumber direktori Open Source
+
+Domain kedua (`/opensource`), pipeline terpisah (`scripts/sync-opensource.mjs`, `npm run sync:opensource`, wired ke nightly cron non-blocking):
+
+1. **`IndopenSource/awesome-indonesia`** (`repos.json`) — kurasi komunitas, array `"owner/repo"`. Sumber daftar proyek.
+2. **GitHub REST API** `/repos/{owner}/{repo}` — metadata live per repo (stars, language, license, topics, pushedAt, dll), bounded concurrency.
+
+Output `data/opensource.json` (`OpenSourceData`). Idempotent. Sumber gagal/404 di-skip, ga jatohin pipeline. Atribusi: "Synced [tanggal] dari IndopenSource/awesome-indonesia" + link.
+
+---
+
+## 11. Tech (ringan aja)
+
+- **Frontend:** Next.js + Tailwind, static/ISR (rebuild tiap malam).
+- **Data:** simpan sebagai file di repo (JSON/MDX). **Belum perlu database** buat v1 — datanya read-only & di-generate ulang tiap build.
+- **Penjadwalan:** GitHub Actions atau Vercel Cron buat trigger sync + rebuild harian.
+- **Hosting:** Vercel.
+- **Desain (REVISED):** clean **light / paper / neutral** ala getaiperks.com. bg paper `#f1f0e8` · card putih · text `#11181c` · tombol pure black · accent hijau+ungu. Heading Georgia serif, body Inter. (Oren `#dc4f1c` di-pause, gampang dibalikin di `globals.css`.)
+
+Sengaja tanpa DB, tanpa auth, tanpa backend kompleks — biar maintenance nyaris nol.
+
+---
+
+## 12. (Opsional, kalau cepet) sinyal komunitas paling murah
+
+Satu-satunya elemen komunitas yang boleh masuk v1 — **hanya kalau gampang**: tombol per-entry **"Masih works? 👍 / Udah mati 👎"** (anonim, simpan count doang).
+
+Ini buat ngisi info yang mesin ga bisa tau (akses Indonesia real-time). Sifatnya **nambahin**, bukan jadi tulang punggung. Kalau nambah ribet, skip — taro di v2.
+
+---
+
+## 13. Definisi selesai (v1)
+
+- Directory bisa dibuka, di-search, di-filter.
+- Tiap entry punya atribusi sumber + tanggal sync + link.
+- Pipeline sync jalan otomatis tiap malam, ga butuh tangan.
+- Ga ada satu pun klaim yang ga punya sumber.
+- Situs fresh tanpa gw harus ngapa-ngapain.
+- Direktori `/opensource` live, di-sync dari `IndopenSource/awesome-indonesia` + GitHub API tiap malam.
+
+---
+
+## 14. Non-goals (biar fokus)
+
+- Bukan buat menang kategori atau ngalahin GitHub lists — itu sumber kita, bukan musuh.
+- Bukan buat dimonetisasi.
+- Bukan "verified directory" — kita aggregator yang transparan.
+- Bukan butuh komunitas aktif buat berfungsi.

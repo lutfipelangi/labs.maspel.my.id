@@ -1,0 +1,82 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { ViewTransitions } from "next-view-transitions";
+import "./globals.css";
+import Footer from "@/components/Footer";
+import CloudflareAnalytics from "@/components/CloudflareAnalytics";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "API AI  — Direktori Free Tier & Credits LLM | labs.maspel.my.id",
+  description:
+    "Direktori API AI & LLM gratis untuk developer Indonesia: free tier & free credits, di-aggregate otomatis dari sumber komunitas. Tiap provider nampilin model, context window, rate limit & modality apa adanya. Aggregator transparan, bukan verifier.",
+  metadataBase: new URL("https://labs.maspel.my.id"),
+  alternates: { canonical: "https://labs.maspel.my.id" },
+  openGraph: {
+    title: "API AI Gratis — Direktori Free Tier & Credits LLM | tokengratis.id",
+    description:
+      "Direktori API AI & LLM gratis untuk developer Indonesia: free tier & free credits dari sumber komunitas. Aggregator transparan, bukan verifier.",
+    url: "https://labs.maspel.my.id",
+    siteName: "labs.maspel.my.id",
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "API AI Gratis — Direktori Free Tier & Credits LLM | labs.maspel.my.id",
+    description:
+      "Direktori API AI & LLM gratis untuk developer Indonesia: free tier & free credits dari sumber komunitas.",
+    creator: "@lutfipelangi",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <ViewTransitions>
+      <html lang="id" className={inter.variable}>
+        <body>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-[100] focus:rounded-md focus:border focus:border-ink-line focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-fog"
+          >
+            Lewati ke konten
+          </a>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "tokengratis.id",
+                url: "https://tokengratis.id",
+                description:
+                  "Direktori free tier & free credits API LLM, di-aggregate dari sumber komunitas.",
+                inLanguage: "id",
+                author: {
+                  "@type": "Person",
+                  name: "Raymond Chin",
+                  url: "https://instagram.com/raymondchins",
+                },
+              }).replace(/</g, "\\u003c"),
+            }}
+          />
+          {children}
+          <Footer />
+          <Analytics />
+          <CloudflareAnalytics />
+        </body>
+      </html>
+    </ViewTransitions>
+  );
+}

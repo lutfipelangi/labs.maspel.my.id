@@ -1,0 +1,237 @@
+name: nightly-data-sync
+
+# Pipeline aggregator tokengratis.id (PRD §8). Tiap malam re-fetch 4 sumber
+# paralel (mnfst JSON + freellm.net HTML + cheahjs README + openrouter live API),
+# gap-fill context/maxOutput dari models.dev, normalize via scripts/sync.mjs,
+# commit hasilnya → push ke main → Vercel auto-deploy (rebuild fresh).
+# Plus refresh direktori open source (scripts/sync-opensource.mjs, non-blocking).
+# Maintenance ~nol. LLM fallback (Claude Haiku) re-parse sumber unstructured
+# yang drift kalau ANTHROPIC_API_KEY di-set sebagai repo secret.
+# Bisa di-trigger manual ("Run workflow").
+#
+# sync.mjs nge-stamp `syncedAt` tiap run, jadi normalnya ADA diff tiap malam →
+# commit + rebuild harian. Itu disengaja: "Synced [tanggal]" maju tiap malam =
+# sinyal liveness/fresh (PRD §2 trust dari transparansi). Saat sumber mnfst
+# memang berubah, perubahan kontennya ikut ke-commit di run yang sama.
+#
+# Safety: snapshot-diff guard di sync.mjs bandingin hasil run vs data terakhir
+# yang ke-commit. TAPI sejak 2026-07-27 dia GA LAGI abort semua-atau-nol.
+#
+# Kenapa diubah: 8 dari 25 run terakhir GAGAL, semuanya sebab yang sama — guard
+# trip lalu ngebuang seluruh write, jadi 24 provider yang datanya segar ikut
+# hangus gara-gara 1 provider goyang. 6 dari 8 itu cuma sumber ngadat semalam
+# (freellm render ga utuh → 3 provider sole-source-nya lenyap), yang besoknya
+# balik sendiri. Sisanya perubahan sumber beneran (github-models pensiun) yang
+# nyangkut MERAH terus sampai ada manusia yang nge-force manual.
+#
+# Sekarang (scripts/lib/quarantine.mjs) — prinsipnya: korupsi itu SEMENTARA,
+# kenyataan itu MENETAP, dan yang mbedain cuma waktu:
+#   - Anomali PER-PROVIDER (provider hilang / model nyusut / id churn) →
+#     provider itu pakai record last-known-good, provider lain tetep ditulis
+#     segar, run HIJAU. Record lama dibawa apa adanya jadi `syncedAt`-nya ga
+#     maju → situs nampilin "Disinkron [tanggal lama]", jujur sendiri.
+#   - Anomali SAMA muncul 3 run berturut-turut → itu kenyataan, diterima
+#     otomatis, tanpa perlu ada yang turun tangan.
+#   - Sumber pulih sebelum 3 run → karantina dibersihin, ga ada jejak.
+#   - Anomali flapping > 7 hari tanpa pernah stabil → FATAL (biar ga basi
+#     diam-diam), state-nya di data/quarantine.json.
+#
+# Yang SENGAJA tetep fatal (karantina ga boleh nutupin korupsi masif):
+#   - error GLOBAL: total model anjlok, minProviders floor, dan field-value
+#     churn (Rule 6 = detektor kolom-ketuker dari INCIDENT 2026-07-25)
+#   - > 30% provider kena anomali sekaligus
+#   - shape-guard fatal (jalur terpisah, ga disentuh karantina)
+#
+# Efeknya ke alert: run yang gagal sekarang beneran butuh mata manusia, bukan
+# noise. Provider yang lagi dikarantina dilaporin di $GITHUB_STEP_SUMMARY.
+#
+# Manual override: kalau sumber memang sengaja hapus provider / shrink data dan
+# ga mau nunggu 3 malam, trigger "Run workflow" dengan `allow_data_shrink = true`.
+# Cron run (scheduled) SELALU pakai guard ON — default aman.
+#
+# Shape guard (scripts/lib/shape-guard.mjs, INCIDENT 2026-07-25 — freellm
+# nyisipin kolom "Score", context keisi 81/45/40, lolos SEMUA guard count-based
+# di atas): sync.mjs sekarang juga ngukur BENTUK nilai tiap field, bukan cuma
+# jumlah baris/kolom. Fatal → skip source / abort write, sama exit-code-1
+# semantics kayak guard lain. Reporting: tiap run nulis data/sync-report.json
+# (source/rule/ratio/sample) + nulis $GITHUB_STEP_SUMMARY (otomatis ke-render
+# di halaman run — GITHUB_STEP_SUMMARY udah tersedia ke tiap step tanpa setup
+# tambahan di YAML ini). Step "Buka/update issue" di bawah baca sync-report.json
+# buat isi body issue GitHub dengan detail konkret, bukan cuma "cek log run" —
+# GitHub otomatis email repo owner pas ada aktivitas issue, jadi ini alert
+# zero-setup (ga butuh Telegram/webhook/email digest terpisah).
+
+on:
+  schedule:
+    - cron: "0 19 * * *" # 02:00 WIB (UTC+7) tiap malam
+  workflow_dispatch:
+    inputs:
+      allow_data_shrink:
+        type: boolean
+        default: false
+        description: "Bypass data-shrink guard untuk perubahan sumber yang disengaja"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: nightly-data-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync data dari sumber komunitas
+        id: sync
+        env:
+          # Cron run: inputs kosong → ALLOW_DATA_SHRINK="" → guard ON (aman).
+          # Manual run dengan allow_data_shrink=true → ALLOW_DATA_SHRINK="1" → guard bypass.
+          ALLOW_DATA_SHRINK: ${{ inputs.allow_data_shrink && '1' || '' }}
+          # LLM fallback (scripts/lib/llm-fallback.mjs) cuma aktif kalau salah satu auth ada:
+          # ANTHROPIC_API_KEY → raw Anthropic API (billing per-token).
+          # CLAUDE_CODE_OAUTH_TOKEN → headless Claude Code via `npx @anthropic-ai/claude-code -p`
+          #   (pakai kuota subscription Max, BUKAN API billing). Set via `claude setup-token`.
+          # Kalau dua-duanya ga di-set → fallback OFF (sync jalan normal).
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: node scripts/sync.mjs
+
+      - name: Sync direktori open source Indonesia
+        # Non-blocking: kalau GitHub API flaky / IndopenSource repos.json down,
+        # JANGAN jatohin push providers.json (sumber utama). Script self-guard
+        # (sanity floor ≥50% repo) — gagal = TIDAK nulis, last-known-good aman.
+        # GITHUB_TOKEN auto-provisioned Actions → hindari rate-limit 60 req/jam.
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-opensource.mjs
+
+      - name: Test pipeline self-tests
+        run: npm test
+
+      - name: Build (gate — pastiin data baru ke-render)
+        run: npm run build
+
+      - name: Commit + push kalau sumber berubah
+        run: |
+          # data/ (bukan cuma providers.json) supaya data/source-baselines.json
+          # ikut ke-commit (rolling baseline last-known-good).
+          git add data/ public/logos
+          if git diff --cached --quiet; then
+            echo "Sumber ga berubah — skip commit (no rebuild)."
+          else
+            git config user.name "tokengratis-bot"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore(data): nightly sync (mnfst + freellm + cheahjs + openrouter + opensource)"
+            git pull --rebase origin main
+            git push
+            echo "Data berubah — pushed, Vercel akan rebuild."
+          fi
+
+      - name: Buka / update issue kalau sync gagal
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const label = 'sync-failure';
+            const title = '⚠️ Nightly data sync failed';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+
+            // data/sync-report.json ditulis oleh scripts/sync.mjs SEBELUM tiap
+            // exit point (guard fatal ATAU crash ga terduga lewat top-level
+            // catch) — masih ada di disk runner walau run gagal SEBELUM commit
+            // step (jadi belum tentu ke-commit ke repo). Kalau step "Sync data
+            // dari sumber komunitas" sendiri ga sempet jalan (mis. checkout/
+            // install gagal), atau step yang gagal itu "Test pipeline
+            // self-tests"/"Build" (bukan sync.mjs), file ini bisa ga ada atau
+            // masih dari commit lama — makanya best-effort, ada fallback text.
+            let reportSection = '_(data/sync-report.json tidak ditemukan di workspace run ini — cek raw log job untuk detail.)_';
+            try {
+              const report = JSON.parse(fs.readFileSync('data/sync-report.json', 'utf8'));
+              const lines = [];
+              lines.push(`**Outcome:** \`${report.outcome}\` (generated ${report.generatedAt})`);
+
+              if (report.skipped && report.skipped.length) {
+                lines.push('', `**Sumber di-skip:** ${report.skipped.join(', ')}`);
+              }
+
+              if (report.fatalIssues && report.fatalIssues.length) {
+                lines.push('', '**Fatal shape issues:**');
+                for (const f of report.fatalIssues.slice(0, 10)) {
+                  const ratioPct = ((f.ratio || 0) * 100).toFixed(1);
+                  lines.push(`- \`${f.source}\` — rule \`${f.rule}\`, field \`${f.field}\`: ${f.count}/${f.total} (${ratioPct}%)`);
+                  if (f.samples && f.samples.length) lines.push(`  - samples: \`${JSON.stringify(f.samples)}\``);
+                  lines.push(`  - ${f.message}`);
+                }
+              }
+
+              if (report.smokeTest && report.smokeTest.errors && report.smokeTest.errors.length) {
+                lines.push('', '**Smoke test errors:**');
+                for (const e of report.smokeTest.errors.slice(0, 10)) lines.push(`- ${e}`);
+              }
+
+              if (report.diffGuard && report.diffGuard.ok === false) {
+                lines.push('', '**Snapshot guard errors:**');
+                for (const e of report.diffGuard.errors.slice(0, 10)) lines.push(`- ${e}`);
+              }
+
+              if (report.crash) {
+                lines.push('', `**Crash:** \`${report.crash.message}\``);
+              }
+
+              reportSection = lines.join('\n');
+            } catch (e) {
+              // File ga ada / korup — fallback text di atas tetep dipakai.
+            }
+
+            const body = `Run gagal: ${runUrl}\n\nLast-known-good masih live — data lama belum ke-overwrite.\n\n${reportSection}\n\nTutup issue ini setelah root cause diatasi.`;
+
+            // Pastikan label ada dulu
+            try {
+              await github.rest.issues.getLabel({ owner: context.repo.owner, repo: context.repo.repo, name: label });
+            } catch {
+              await github.rest.issues.createLabel({ owner: context.repo.owner, repo: context.repo.repo, name: label, color: 'd93f0b' });
+            }
+
+            // Cek apakah sudah ada open issue dengan label ini
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: label,
+              state: 'open',
+              per_page: 1,
+            });
+
+            if (existing.data.length > 0) {
+              // Tambah komentar ke issue yang ada — hindari spam duplikat
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.data[0].number,
+                body: `Run baru juga gagal: ${runUrl}\n\n${reportSection}`,
+              });
+              console.log(`Komentar ditambahkan ke issue #${existing.data[0].number}`);
+            } else {
+              // Buat issue baru
+              const issue = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: [label],
+              });
+              console.log(`Issue baru dibuat: ${issue.data.html_url}`);
+            }

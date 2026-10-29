@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/*
+ * Design language: getaiperks.com — paper + editorial serif + neutral black/white,
+ * dengan accent hijau (free/positif) & ungu (partner).
+ * Token names lama dipertahankan (ink/ember/fog/mute) biar low-churn:
+ *   ink       = paper background (#f1f0e8)
+ *   ink-soft  = card / input surface (putih)
+ *   ink-line  = border / divider
+ *   fog       = primary text (cool near-black)
+ *   mute      = secondary text (cool gray)
+ *   ember*    = accent → pure black (buttons & selected states)
+ * Accent baru: grass* (hijau) + grape* (ungu).
+ */
+@theme {
+  --color-ink: #f1f0e8;        /* page background — warm paper */
+  --color-ink-soft: #ffffff;   /* cards, inputs */
+  --color-ink-line: #e4e2d8;   /* borders, dividers */
+  --color-ember: #000000;      /* accent → pure black (buttons) */
+  --color-ember-soft: #1a1a1a; /* black hover */
+  --color-mute: #5f6a70;       /* secondary text */
+  --color-fog: #11181c;        /* primary text */
+  /* Fill state TERPILIH buat kontrol multi-select (chip filter). Lebih gelap
+     dari ink-line biar keliatan sekilas — tapi fill SENDIRIAN ga akan pernah
+     nyampe 3:1 tanpa jadi chip hitam, jadi WCAG 1.4.11 dibawa sama
+     border mute solid + glyph ✓. Fill = penguat, bukan satu-satunya penanda. */
+  --color-ink-sel: #dedbcb;    /* chip/filter selected */
+
+  /* Green accent — free tier / positif / "bisa diakses" */
+  --color-grass: #0e793c;
+  --color-grass-bg: #e8faf0;
+  --color-grass-line: #a2e9c1;
+  --color-grass-solid: #00a63e;
+
+  /* Purple accent — partner / kategori sekunder */
+  --color-grape: #7c3aed;
+  --color-grape-bg: #f4f3fb;
+  --color-grape-line: #d8cef2;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-fog);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Editorial serif headings (getaiperks pakai Georgia, weight 600, tight tracking). */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+  }
+}
+
+::selection {
+  background: var(--color-ember);
+  color: #ffffff;
+}
+
+/* ─── View Transitions — subtle crossfade on page navigation ─── */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: 200ms ease both fade-out;
+  }
+  ::view-transition-new(root) {
+    animation: 200ms ease both fade-in;
+  }
+
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+
+  /* Tailwind animate-pulse (EmptyDataPanel, /changelog) keyframes-nya
+     unconditional — tanpa ini titik indikator kedip terus buat user yang
+     minta reduced motion. */
+  .animate-pulse {
+    animation: none;
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "generatedAt": "2026-10-28T22:58:43.514Z",
+  "outcome": "ok-with-warnings",
+  "sources": {
+    "mnfst/awesome-free-llm-apis": {
+      "status": "ok",
+      "providers": 16,
+      "models": 106,
+      "shapeIssues": []
+    },
+    "freellm.net": {
+      "status": "ok",
+      "providers": 22,
+      "models": 301,
+      "shapeIssues": [
+        {
+          "severity": "warn",
+          "source": "freellm.net",
+          "field": "maxOutput",
+          "rule": "all-null-collapse",
+          "count": 301,
+          "total": 301,
+          "ratio": 1,
+          "samples": [],
+          "message": "Field \"maxOutput\": 100% null di 301 model dari sumber \"freellm.net\". Ini BISA legit (sumber emang ga publish kolom ini — persis kasus freellm.net yang Max Output-nya hilang dari layout baru, lihat INCIDENT 2026-07-25) ATAU tanda parser patah gagal narik kolom yang harusnya ada. Manusia perlu cek struktur sumber \"freellm.net\" langsung untuk mutusin."
+        },
+        {
+          "severity": "warn",
+          "source": "freellm.net",
+          "field": "url",
+          "rule": "all-null-collapse",
+          "count": 22,
+          "total": 22,
+          "ratio": 1,
+          "samples": [],
+          "message": "Field \"url\": 100% null di 22 provider dari sumber \"freellm.net\". Cek apakah sumber ini emang ga publish field ini, atau parser gagal narik link."
+        },
+        {
+          "severity": "warn",
+          "source": "freellm.net",
+          "field": "baseUrl",
+          "rule": "all-null-collapse",
+          "count": 22,
+          "total": 22,
+          "ratio": 1,
+          "samples": [],
+          "message": "Field \"baseUrl\": 100% null di 22 provider dari sumber \"freellm.net\". Cek apakah sumber ini emang ga publish field ini, atau parser gagal narik link."
+        }
+      ]
+    },
+    "cheahjs/free-llm-api-resources": {
+      "status": "skipped",
+      "reason": "fetch-error",
+      "detail": "cheahjs README fetch failed: 404 Not Found"
+    },
+    "openrouter.ai/api/v1/models": {
+      "status": "ok",
+      "providers": 1,
+      "models": 16,
+      "shapeIssues": []
+    }
+  },
+  "skipped": [
+    "cheahjs/free-llm-api-resources"
+  ],
+  "merged": {
+    "providers": 22,
+    "models": 307,
+    "shapeIssues": [
+      {
+        "severity": "warn",
+        "source": "merged",
+        "field": "context",
+        "rule": "context-shape",
+        "count": 1,
+        "total": 291,
+        "ratio": 0.003436426116838488,
+        "samples": [
+          "448"
+        ],
+        "message": "Field \"context\": 1/291 (0%) nilai TIDAK berbentuk context window yang wajar (contoh valid: \"128K\", \"1M\", \"8192\"). Sample: 448. Ini pola PERSIS INCIDENT 2026-07-25 (kolom \"Score\" freellm.net kebaca sebagai context — nilai 40-81 telanjang tanpa unit K/M). Cek mapping header kolom di adapter sumber \"merged\" sebelum percaya angka ini."
+      },
+      {
+        "severity": "warn",
+        "source": "merged",
+        "field": "maxOutput",
+        "rule": "maxoutput-shape",
+        "count": 1,
+        "total": 131,
+        "ratio": 0.007633587786259542,
+        "samples": [
+          "448"
+        ],
+        "message": "Field \"maxOutput\": 1/131 (1%) nilai TIDAK berbentuk token output yang wajar (contoh valid: \"8K\", \"Varies\", \"Model-dependent\"). Sample: 448. Cek apakah kolom maxOutput di sumber \"merged\" ketuker dengan kolom lain (currency/tanggal/persentase/prosa bebas bukan bentuk maxOutput yang valid)."
+      }
+    ]
+  },
+  "smokeTest": {
+    "errors": [],
+    "warnings": []
+  },
+  "diffGuard": {
+    "ok": false,
+    "errors": [
+      "provider \"cerebras\" disappeared (was in prev, missing in next)",
+      "provider \"hugging-face\" disappeared (was in prev, missing in next)"
+    ],
+    "warnings": [],
+    "stats": {
+      "prevProviders": 24,
+      "nextProviders": 22,
+      "prevModels": 314,
+      "nextModels": 307,
+      "totalDropPct": 2.229299363057325,
+      "disappeared": [
+        "cerebras",
+        "hugging-face"
+      ],
+      "shrunk": [],
+      "churned": [],
+      "fieldChurn": {
+        "model": {
+          "context": {
+            "eligible": 288,
+            "changed": 0,
+            "ratioPct": 0,
+            "examples": []
+          },
+          "maxOutput": {
+            "eligible": 130,
+            "changed": 0,
+            "ratioPct": 0,
+            "examples": []
+          },
+          "modality": {
+            "eligible": 236,
+            "changed": 0,
+            "ratioPct": 0,
+            "examples": []
+          },
+          "rateLimit": {
+            "eligible": 178,
+            "changed": 0,
+            "ratioPct": 0,
+            "examples": []
+          }
+        },
+        "provider": {
+          "description": {
+            "eligible": 16,
+            "changed": 0,
+            "ratioPct": 0,
+            "examples": []
+          },
+          "baseUrl": {
+            "eligible": 16,
+            "changed": 0,
+            "ratioPct": 0,
+            "examples": []
+          },
+          "freeLimit": {
+            "eligible": 8,
+            "changed": 0,
+            "ratioPct": 0,
+            "examples": []
+          },
+          "maxContext": {
+            "eligible": 21,
+            "changed": 0,
+            "ratioPct": 0,
+            "examples": []
+          }
+        }
+      }
+    }
+  },
+  "fatalIssues": [],
+  "warnIssues": [
+    {
+      "severity": "warn",
+      "source": "freellm.net",
+      "field": "maxOutput",
+      "rule": "all-null-collapse",
+      "count": 301,
+      "total": 301,
+      "ratio": 1,
+      "samples": [],
+      "message": "Field \"maxOutput\": 100% null di 301 model dari sumber \"freellm.net\". Ini BISA legit (sumber emang ga publish kolom ini — persis kasus freellm.net yang Max Output-nya hilang dari layout baru, lihat INCIDENT 2026-07-25) ATAU tanda parser patah gagal narik kolom yang harusnya ada. Manusia perlu cek struktur sumber \"freellm.net\" langsung untuk mutusin."
+    },
+    {
+      "severity": "warn",
+      "source": "freellm.net",
+      "field": "url",
+      "rule": "all-null-collapse",
+      "count": 22,
+      "total": 22,
+      "ratio": 1,
+      "samples": [],
+      "message": "Field \"url\": 100% null di 22 provider dari sumber \"freellm.net\". Cek apakah sumber ini emang ga publish field ini, atau parser gagal narik link."
+    },
+    {
+      "severity": "warn",
+      "source": "freellm.net",
+      "field": "baseUrl",
+      "rule": "all-null-collapse",
+      "count": 22,
+      "total": 22,
+      "ratio": 1,
+      "samples": [],
+      "message": "Field \"baseUrl\": 100% null di 22 provider dari sumber \"freellm.net\". Cek apakah sumber ini emang ga publish field ini, atau parser gagal narik link."
+    },
+    {
+      "severity": "warn",
+      "source": "merged",
+      "field": "context",
+      "rule": "context-shape",
+      "count": 1,
+      "total": 291,
+      "ratio": 0.003436426116838488,
+      "samples": [
+        "448"
+      ],
+      "message": "Field \"context\": 1/291 (0%) nilai TIDAK berbentuk context window yang wajar (contoh valid: \"128K\", \"1M\", \"8192\"). Sample: 448. Ini pola PERSIS INCIDENT 2026-07-25 (kolom \"Score\" freellm.net kebaca sebagai context — nilai 40-81 telanjang tanpa unit K/M). Cek mapping header kolom di adapter sumber \"merged\" sebelum percaya angka ini."
+    },
+    {
+      "severity": "warn",
+      "source": "merged",
+      "field": "maxOutput",
+      "rule": "maxoutput-shape",
+      "count": 1,
+      "total": 131,
+      "ratio": 0.007633587786259542,
+      "samples": [
+        "448"
+      ],
+      "message": "Field \"maxOutput\": 1/131 (1%) nilai TIDAK berbentuk token output yang wajar (contoh valid: \"8K\", \"Varies\", \"Model-dependent\"). Sample: 448. Cek apakah kolom maxOutput di sumber \"merged\" ketuker dengan kolom lain (currency/tanggal/persentase/prosa bebas bukan bentuk maxOutput yang valid)."
+    }
+  ],
+  "quarantine": {
+    "heldProviders": [
+      {
+        "slug": "cerebras",
+        "kind": "disappeared",
+        "detail": "provider hilang dari hasil merge",
+        "streak": 1,
+        "needs": 3
+      }
+    ],
+    "accepted": [
+      {
+        "slug": "hugging-face",
+        "kind": "disappeared",
+        "detail": "provider hilang dari hasil merge"
+      }
+    ],
+    "cleared": [],
+    "confirmRuns": 3
+  }
+}

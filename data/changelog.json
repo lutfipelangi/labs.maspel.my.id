@@ -1,0 +1,2233 @@
+[
+  {
+    "date": "2026-10-28",
+    "providersAdded": [],
+    "providersRemoved": [
+      {
+        "slug": "hugging-face",
+        "name": "Hugging Face"
+      }
+    ],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "Nemotron 3 Nano 30B A3B"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-10-27",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "OpenRouter",
+        "added": [],
+        "removed": [
+          "NVIDIA: Nemotron 3 Super (free)"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-26",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Google Gemini",
+        "added": [
+          "Gemini 3.5 Flash",
+          "Gemini 3.7 Flash"
+        ],
+        "removed": [
+          "Gemini 3.5 Flash",
+          "Gemini 3.7 Flash"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ]
+      },
+      {
+        "provider": "Kilo Code",
+        "added": [
+          "nvidia/nemotron-3-super-120b-a12b:free",
+          "stealth/glyph-cluster",
+          "nvidia/nemotron-3.5-content-safety:free"
+        ],
+        "removed": [
+          "apodex/apodex-1.1-mini:free",
+          "inclusionai/ling-3.1-flash",
+          "nvidia/nemotron-3-super-120b-a12b:free",
+          "tencent/hy3:free"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [],
+        "removed": [
+          "Nemotron 3 Nano 30B A3B"
+        ]
+      },
+      {
+        "provider": "OVHcloud AI Endpoints",
+        "added": [],
+        "removed": [
+          "Qwen3-32B"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-25",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Google Gemini",
+        "added": [
+          "Gemini 2.5 Pro"
+        ],
+        "removed": [
+          "Gemini 2.5 Pro"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "Kilo Code",
+        "added": [
+          "apodex/apodex-1.1-mini:free",
+          "inclusionai/ling-3.1-flash",
+          "nvidia/nemotron-3-super-120b-a12b:free",
+          "tencent/hy3:free"
+        ],
+        "removed": [
+          "apodex/apodex-1.1-mini:free",
+          "inclusionai/ling-3.1-flash",
+          "nvidia/nemotron-3-super-120b-a12b:free",
+          "tencent/hy3:free"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "Nemotron 3 Nano 30B A3B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "Nemotron 3 Super 120B A12B",
+          "mistralai/mistral-large-2-instruct",
+          "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+          "nvidia/nemotron-3.5-bolt-e4b"
+        ],
+        "removed": [
+          "nvidia/nemotron-3-super-120b-a12b",
+          "mistralai/mistral-large-2-instruct",
+          "nvidia/llama-3.1-nemotron-ultra-253b-v1"
+        ]
+      },
+      {
+        "provider": "Ollama Cloud",
+        "added": [],
+        "removed": [
+          "deepseek-v4-flash",
+          "kimi-k3",
+          "mistral-large-3:675b",
+          "qwen3.5:397b"
+        ]
+      },
+      {
+        "provider": "OVHcloud AI Endpoints",
+        "added": [
+          "Qwen3-32B"
+        ],
+        "removed": [
+          "Qwen3-32B"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-24",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Kilo Code",
+        "added": [],
+        "removed": [
+          "inclusionai/ling-3.0-flash-sante:free",
+          "qwen/qwen3.8-27b:free",
+          "stepfun/step-3.7-flash:free"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [],
+        "removed": [
+          "Nemotron 3 Nano 30B A3B"
+        ]
+      },
+      {
+        "provider": "SiliconFlow",
+        "added": [],
+        "removed": [
+          "Qwen/Qwen3-8B"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-23",
+    "providersAdded": [
+      {
+        "slug": "gonka-broker",
+        "name": "Gonka Broker"
+      }
+    ],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [],
+        "removed": [
+          "Minimax M3.1 Flash"
+        ]
+      },
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ]
+      },
+      {
+        "provider": "Kilo Code",
+        "added": [
+          "nvidia/nemotron-3.5-super-vl:free",
+          "reflection/beam-free",
+          "inclusionai/ling-3.0-flash-sante:free",
+          "qwen/qwen3.8-27b:free",
+          "recursive/flint-v1.0:free",
+          "stepfun/step-3.7-flash:free",
+          "xingchen-agi/xing4.0-29b-a4b:free"
+        ],
+        "removed": [
+          "inclusionai/ling-3.0-flash-sante:free",
+          "qwen/qwen3.8-27b:free",
+          "stepfun/step-3.7-flash:free"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "nemotron-3-nano:30b"
+        ],
+        "removed": [
+          "DeepSeek-V4-Flash-0731"
+        ]
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "minimaxai/minimax-m3.1-flash"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "SiliconFlow",
+        "added": [
+          "Qwen/Qwen3-8B",
+          "tencent/Hunyuan-MT-7B",
+          "XingChenAGI/Xing4.0-29B"
+        ],
+        "removed": [
+          "Qwen/Qwen3-8B"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-22",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "@cf/deepseek-ai/deepseek-v4-flash-0731",
+          "@cf/deepseek-ai/deepseek-v4-pro-0813",
+          "@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+          "@cf/zai-org/glm-5.3",
+          "@cf/zai-org/glm-5.3-flash"
+        ],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [],
+        "removed": [
+          "GLM-5.3-Flash"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [],
+        "removed": [
+          "MiniMax: MiniMax M3.1 Flash (free)"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-21",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "Beam",
+          "Laguna S 2.1",
+          "Minimax M3.1 Flash",
+          "Nemotron 3.5 Lightning"
+        ],
+        "removed": [
+          "Mimo V2.6 Flash",
+          "Muse Spark 1.3 Contributor"
+        ]
+      },
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [],
+        "removed": [
+          "Gemini 3.1 Flash Lite"
+        ]
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "nvidia/nemotron-3.5-embed-1b",
+          "nvidia/nemotron-3.5-embed-8b"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "Recursive: Flint (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-10-19",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "MiniMax: MiniMax M3.1 Flash (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-10-17",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-16",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "cline-free/nemotron-3.5-super-vl"
+        ],
+        "removed": [
+          "Step 5 Preview"
+        ]
+      },
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "@cf/daily-co/phonellm-mini-alpha-2"
+        ],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "Nemotron 3.5 Super VL 120B A12B",
+          "stepfun-ai/step-5-preview"
+        ],
+        "removed": [
+          "Kimi K3"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "XingChen: Xing4.0 29B A4B (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-10-15",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "LLM7.io",
+        "added": [],
+        "removed": [
+          "gemini-2.5-flash-lite"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "NVIDIA: Nemotron 3.5 Super VL (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-10-14",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "gemini-2.5-flash-lite"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-10-13",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [],
+        "removed": [
+          "Apodex: Apodex 1.1 Mini (free)"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-10",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-09",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "Step 5 Preview"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-10-08",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "DeepSeek V4 Pro",
+          "GLM-5.2",
+          "MiniMax-M3"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "OpenCode Zen",
+        "added": [
+          "Mistral Large 4"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [],
+        "removed": [
+          "inclusionAI: Ling 3.0 Flash Sante (free)"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-07",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "Solar Mini 4"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905",
+          "qwen/qwen3.8-27b"
+        ],
+        "removed": [
+          "groq/compound",
+          "groq/compound-mini",
+          "qwen/qwen3.6-27b",
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ]
+      },
+      {
+        "provider": "OpenCode Zen",
+        "added": [],
+        "removed": [
+          "MiMo-V2.5"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-06",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [],
+        "removed": [
+          "space-bunny-alpha"
+        ]
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [],
+        "removed": [
+          "nvidia/riva-translate-4b-instruct-v1.1"
+        ]
+      },
+      {
+        "provider": "OVHcloud AI Endpoints",
+        "added": [],
+        "removed": [
+          "Qwen3-Coder-30B-A3B-Instruct",
+          "Mistral-7B-Instruct-v0.3"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-04",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "Nemotron 3 Nano 30B A3B"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-10-02",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "DeepSeek V4 Flash 0731"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "OpenCode Zen",
+        "added": [
+          "GLM-5"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-10-01",
+    "providersAdded": [],
+    "providersRemoved": [
+      {
+        "slug": "github-models",
+        "name": "GitHub Models"
+      }
+    ],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [],
+        "removed": [
+          "Pixel Canary"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "GLM-5.3-Flash"
+        ],
+        "removed": [
+          "DeepSeek V4 Flash 0731"
+        ]
+      },
+      {
+        "provider": "OpenCode Zen",
+        "added": [],
+        "removed": [
+          "Nemotron 3 Ultra 550B A55B"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "Apodex: Apodex 1.1 Mini (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-30",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "OpenCode Zen",
+        "added": [],
+        "removed": [
+          "DeepSeek V4 Flash Vision Exp",
+          "Ling 3.0 Flash Fin"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-29",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [],
+        "removed": [
+          "Gemini 3.8 Flash"
+        ]
+      },
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [],
+        "removed": [
+          "GLM-5.3-Flash"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-28",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "OpenCode Zen",
+        "added": [
+          "Qwen3.8 Max"
+        ],
+        "removed": [
+          "GLM-5"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [],
+        "removed": [
+          "inclusionAI: Ling 3.0 Flash Fin (free)"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-26",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "Pixel Canary"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-25",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "Gemini 3.8 Flash"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "OpenCode Zen",
+        "added": [
+          "space-bunny-free"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [],
+        "removed": [
+          "Nex AGI: Nex-N2.5-Mini (free)",
+          "Nex AGI: Nex-N2.5-Pro (free)",
+          "Z.ai: GLM 5.2 (free)"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-24",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "space-bunny-alpha"
+        ],
+        "removed": [
+          "laguna-s-2.1:free",
+          "Solar Pro 4"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-23",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "Mimo V2.6 Flash"
+        ],
+        "removed": [
+          "glm-5.3-flash"
+        ]
+      },
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [],
+        "removed": [
+          "inclusionAI: Ling 3.0 Flash VL (free)"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-22",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "deepseek-ai/deepseek-v4.1-flash"
+        ],
+        "removed": [
+          "deepseek-ai/deepseek-v4-flash-0731"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-20",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [],
+        "removed": [
+          "DeepSeek: DeepSeek V4 Flash 0731 (free)"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-19",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "GLM-5.3-Flash"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "OpenCode Zen",
+        "added": [
+          "DeepSeek V4 Flash Vision Exp",
+          "DeepSeek V4 Pro",
+          "DeepSeek V4.1 Flash",
+          "GLM-5.2",
+          "GLM-5.3",
+          "GLM-5.3-Flash",
+          "Kimi K3",
+          "MiniMax-M3",
+          "Qwen3.5 Plus",
+          "Qwen3.6 Plus",
+          "Qwen3.8 Flash",
+          "Kimi K2.5",
+          "Kimi K2.6",
+          "GLM-5",
+          "MiniMax-M2.5",
+          "MiniMax-M2.7",
+          "GLM-5.1"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-18",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [],
+        "removed": [
+          "Union Alpha"
+        ]
+      },
+      {
+        "provider": "ModelScope",
+        "added": [],
+        "removed": [
+          "GLM-5.3-Flash",
+          "Tencent-Hunyuan/Hy3"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "DeepSeek: DeepSeek V4 Flash 0731 (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-17",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "Union Alpha"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "Qwen: Qwen3.8 27B (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-16",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "ModelScope",
+        "added": [
+          "GLM-5.3-Flash",
+          "deepseek-ai/DeepSeek-V4.1-Flash"
+        ],
+        "removed": [
+          "Qwen/Qwen3-14B",
+          "Qwen/Qwen3-235B-A22B",
+          "Qwen/Qwen3-235B-A22B-Thinking-2507",
+          "Qwen/Qwen3-30B-A3B",
+          "Qwen/Qwen3-30B-A3B-Thinking-2507",
+          "Qwen/Qwen3-4B",
+          "Qwen/Qwen3-8B",
+          "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "Qwen/Qwen3-Next-80B-A3B-Instruct",
+          "Qwen/Qwen3-Next-80B-A3B-Thinking",
+          "Qwen/Qwen3-VL-235B-A22B-Instruct",
+          "Qwen/Qwen3-VL-8B-Instruct",
+          "Qwen/Qwen3-VL-8B-Thinking"
+        ]
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "z-ai/glm-5.3"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-15",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "Deepseek-v4.1-Flash"
+        ],
+        "removed": [
+          "deepseek-v4-flash",
+          "LongCat-2.0"
+        ]
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [],
+        "removed": [
+          "deepseek-ai/deepseek-v4-pro-0813"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "Z.ai: GLM 5.2 (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-14",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "ModelScope",
+        "added": [
+          "nex-agi/Nex-N2.5-mini",
+          "nex-agi/Nex-N2.5-Pro"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "nvidia/nemotron-parse-2.0"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-12",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "z-ai/glm-5.3-flash"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-11",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ]
+      },
+      {
+        "provider": "ModelScope",
+        "added": [
+          "Qwen/Qwen3-235B-A22B"
+        ],
+        "removed": [
+          "Qwen/Qwen3-235B-A22B-Instruct-2507"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-10",
+    "providersAdded": [],
+    "providersRemoved": [
+      {
+        "slug": "sambanova",
+        "name": "SambaNova"
+      }
+    ],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "GitHub Models",
+        "added": [],
+        "removed": [
+          "gpt-4.1",
+          "gpt-4.1-mini",
+          "Llama-4-Scout-17B-16E-Instruct",
+          "Llama-4-Maverick-17B-128E-Instruct-FP8",
+          "gpt-5",
+          "o4-mini",
+          "Llama-3.3-70B-Instruct",
+          "gpt-4o",
+          "Mistral-Small-3.1",
+          "DeepSeek-R1"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "ModelScope",
+        "added": [],
+        "removed": [
+          "Qwen/Qwen3-235B-A22B"
+        ]
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [],
+        "removed": [
+          "deepseek-ai/deepseek-v4-flash",
+          "deepseek-ai/deepseek-v4-pro"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "inclusionAI: Ling 3.0 Flash VL (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-09",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "Muse Spark 1.3 Contributor",
+          "Solar Pro 4"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [],
+        "removed": [
+          "GPT-OSS Safeguard 20B"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-08",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Aion Labs",
+        "added": [],
+        "removed": [
+          "Aion 2.5",
+          "Aion-RP 1.0 (8B)"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "GPT-OSS Safeguard 20B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Kilo Code",
+        "added": [],
+        "removed": [
+          "inclusionai/ling-3.0-flash:free"
+        ]
+      },
+      {
+        "provider": "Mistral AI",
+        "added": [],
+        "removed": [
+          "Ministral 14B",
+          "Ministral 8B",
+          "Ministral 3B"
+        ]
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "deepseek-ai/deepseek-v4-flash-0731",
+          "deepseek-ai/deepseek-v4-pro-0813"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "Nex AGI: Nex-N2.5-Mini (free)",
+          "Nex AGI: Nex-N2.5-Pro (free)"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "SiliconFlow",
+        "added": [],
+        "removed": [
+          "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-07",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "OpenRouter",
+        "added": [],
+        "removed": [
+          "MiniMax: MiniMax M3 (free)",
+          "MiniMax: MiniMax M2.7 (free)"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-06",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cerebras",
+        "added": [],
+        "removed": [
+          "gemma-4-31b",
+          "gpt-oss-120b"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [],
+        "removed": [
+          "Z.ai: GLM 5.2 (free)"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-05",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "OpenCode Zen",
+        "added": [],
+        "removed": [
+          "Laguna S 2.1"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-09-04",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Google Gemini",
+        "added": [
+          "Gemini 3.8 Flash"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [],
+        "removed": [
+          "GPT-OSS Safeguard 20B",
+          "meta-llama/llama-prompt-guard-2-22m",
+          "meta-llama/llama-prompt-guard-2-86m",
+          "qwen/qwen3.8-27b"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "inclusionAI: Ling 3.0 Flash Sante (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-01",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "LLM7.io",
+        "added": [],
+        "removed": [
+          "meta-Llama-3.1-8B-Instruct-Turbo"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-08-31",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "OpenCode Zen",
+        "added": [
+          "Ling 3.0 Flash Fin"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-30",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "OpenCode Zen",
+        "added": [],
+        "removed": [
+          "Hy3 preview"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-08-29",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "LongCat-2.0"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-28",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cline",
+        "added": [
+          "glm-5.3-flash"
+        ],
+        "removed": [
+          "ox-alpha"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "deepseek-v3-0324"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "deepseek-ai/deepseek-v4-pro"
+        ],
+        "removed": [
+          "Llama 3.3 Nemotron Super 49B v1",
+          "meta/llama-3.1-70b-instruct",
+          "meta/llama-3.2-3b-instruct",
+          "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+          "Nemotron Mini 4B Instruct",
+          "Nemotron Nano 12B v2 VL",
+          "meta/llama-3.2-1b-instruct",
+          "meta/llama-3.1-8b-instruct",
+          "nvidia/llama-3.1-nemotron-nano-8b-v1",
+          "nvidia/llama-3.1-nemotron-nano-vl-8b-v1",
+          "nvidia/nvidia-nemotron-nano-9b-v2"
+        ]
+      },
+      {
+        "provider": "OpenCode Zen",
+        "added": [],
+        "removed": [
+          "x-preview-f-free"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "Ling 3.0 Flash Fin (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-26",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "DeepSeek V4 Flash 0731"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [],
+        "removed": [
+          "Inkling",
+          "baai/bge-m3",
+          "nvidia/llama-nemotron-embed-1b-v2",
+          "nvidia/nemoretriever-parse",
+          "nvidia/nv-embed-v1",
+          "nvidia/nv-embedcode-7b-v1",
+          "nvidia/nv-embedqa-e5-v5"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-08-25",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "LLM7.io",
+        "added": [],
+        "removed": [
+          "DeepSeek V4 Flash 0731"
+        ]
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "MiniMax: MiniMax M3 (free)",
+          "MiniMax: MiniMax M2.7 (free)"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-24",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "OpenRouter",
+        "added": [],
+        "removed": [
+          "NVIDIA: Nemotron 3 Nano 30B A3B (free)",
+          "NVIDIA: Nemotron Nano 12B 2 VL (free)",
+          "NVIDIA: Nemotron Nano 9B V2 (free)"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-08-23",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cerebras",
+        "added": [
+          "Llama 3.1 70B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ],
+        "removed": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-22",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cerebras",
+        "added": [],
+        "removed": [
+          "Llama 3.1 70B"
+        ]
+      },
+      {
+        "provider": "Cline",
+        "added": [
+          "ox-alpha"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [],
+        "removed": [
+          "Mistral 7B",
+          "Qwen 1.5 7B"
+        ]
+      },
+      {
+        "provider": "Groq",
+        "added": [],
+        "removed": [
+          "Moonshot Kimi K2",
+          "Moonshot Kimi K2 0905"
+        ]
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "DeepSeek V4 Flash 0731",
+          "meta-Llama-3.1-8B-Instruct-Turbo"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "ModelScope",
+        "added": [
+          "early-access/EA-29B-A4B",
+          "Qwen/Qwen3.8-27B"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "Kimi K3"
+        ],
+        "removed": [
+          "z-ai/glm-5.2"
+        ]
+      },
+      {
+        "provider": "OpenCode Zen",
+        "added": [
+          "x-preview-f-free"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "OpenRouter",
+        "added": [
+          "Thinking Machines: Inkling (free)",
+          "Thinking Machines: Inkling Small (free)"
+        ],
+        "removed": [
+          "OpenAI: gpt-oss-20b (free)"
+        ]
+      },
+      {
+        "provider": "SambaNova",
+        "added": [
+          "DeepSeek-V3.1",
+          "DeepSeek-V3.2 (Preview)",
+          "gemma-4-31B-it (Preview)",
+          "MiniMax-M2.7"
+        ],
+        "removed": [
+          "DeepSeek-V3.1",
+          "DeepSeek-V3.2 (Preview)",
+          "gemma-4-31B-it (Preview)",
+          "gpt-oss-120b",
+          "Meta-Llama-3.3-70B-Instruct",
+          "MiniMax-M2.7"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-08-21",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Aion Labs",
+        "added": [
+          "Aion 2.5",
+          "aion-labs/aion-2.0",
+          "aion-labs/aion-3.0",
+          "aion-labs/aion-3.0-mini",
+          "aion-labs/aion-rp-llama-3.1-8b",
+          "Aion-RP 1.0 (8B)"
+        ],
+        "removed": [
+          "Aion 2.0",
+          "Aion 2.5",
+          "Aion 3.0",
+          "Aion 3.0 Mini",
+          "Aion-RP 1.0 (8B)"
+        ]
+      },
+      {
+        "provider": "GitHub Models",
+        "added": [
+          "gpt-4.1",
+          "gpt-4.1-mini",
+          "Llama-4-Scout-17B-16E-Instruct",
+          "Llama-4-Maverick-17B-128E-Instruct-FP8",
+          "gpt-5",
+          "o4-mini",
+          "Llama-3.3-70B-Instruct",
+          "gpt-4o",
+          "Mistral-Small-3.1",
+          "DeepSeek-R1"
+        ],
+        "removed": [
+          "gpt-4.1",
+          "gpt-4.1-mini",
+          "Llama-4-Scout-17B-16E-Instruct",
+          "Llama-4-Maverick-17B-128E-Instruct-FP8",
+          "gpt-5",
+          "o4-mini",
+          "Llama-3.3-70B-Instruct",
+          "gpt-4o",
+          "Mistral-Small-3.1",
+          "DeepSeek-R1"
+        ]
+      },
+      {
+        "provider": "Google Gemini",
+        "added": [
+          "Gemini 3.7 Flash"
+        ],
+        "removed": [
+          "Gemini 3.7 Flash"
+        ]
+      },
+      {
+        "provider": "Kilo Code",
+        "added": [
+          "liquid/lfm-2.5-2.6b:free"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "LLM7.io",
+        "added": [
+          "minimax-m2.7",
+          "gpt-oss:20b",
+          "mistral-Nemo-Instruct-2407"
+        ],
+        "removed": [
+          "DeepSeek V4 Flash 0731",
+          "MiniMax-M2.7",
+          "deepseek-v3-0324",
+          "GPT OSS 20B",
+          "mistral-small-3.1-24b",
+          "mistral-Nemo-Instruct-2407",
+          "deepseek-r1-0528",
+          "gemini-2.5-flash-lite",
+          "gpt-4o-mini",
+          "qwen2.5-coder-32b"
+        ]
+      },
+      {
+        "provider": "Mistral AI",
+        "added": [
+          "Mistral Medium 3.5 (128B)"
+        ],
+        "removed": [
+          "Mistral Medium 3.5 (128B)"
+        ]
+      },
+      {
+        "provider": "SiliconFlow",
+        "added": [
+          "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+        ],
+        "removed": [
+          "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-08-20",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "@cf/qwen/qwen3.8-27b"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "Groq",
+        "added": [],
+        "removed": [
+          "llama-3.1-8b-instant",
+          "llama-3.3-70b-versatile"
+        ]
+      },
+      {
+        "provider": "ModelScope",
+        "added": [
+          "deepseek-ai/DeepSeek-V4-Pro-0813"
+        ],
+        "removed": []
+      },
+      {
+        "provider": "NVIDIA NIM",
+        "added": [
+          "deepseek-ai/deepseek-v4-flash"
+        ],
+        "removed": [
+          "deepseek-ai/deepseek-v4-flash",
+          "mistralai/mistral-medium-3.5-128b",
+          "deepseek-ai/deepseek-v4-pro"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-08-19",
+    "providersAdded": [],
+    "providersRemoved": [],
+    "models": [
+      {
+        "provider": "Cerebras",
+        "added": [],
+        "removed": [
+          "zai-glm-4.7 (deprecated Aug 2026)"
+        ]
+      },
+      {
+        "provider": "Cline",
+        "added": [],
+        "removed": [
+          "nemotron-3.5-lightning"
+        ]
+      },
+      {
+        "provider": "Cloudflare Workers AI",
+        "added": [
+          "@cf/moonshotai/kimi-k2.7-code",
+          "@cf/zai-org/glm-4.7-flash"
+        ],
+        "removed": [
+          "@cf/moonshotai/kimi-k2.7-code",
+          "@cf/zhipuai/glm-4.7-flash"
+        ]
+      },
+      {
+        "provider": "Google Gemini",
+        "added": [],
+        "removed": [
+          "Gemini 3 Flash (Preview)",
+          "Gemini Flash Latest",
+          "Gemini Flash-Lite Latest",
+          "gemini-robotics-er-1.6-preview",
+          "gemini-robotics-er-2-preview"
+        ]
+      },
+      {
+        "provider": "Kilo Code",
+        "added": [
+          "inclusionai/ling-3.0-flash:free",
+          "nvidia/nemotron-3.5-lightning:free",
+          "tencent/hy3:free"
+        ],
+        "removed": [
+          "inclusionai/ling-3.0-flash:free"
+        ]
+      },
+      {
+        "provider": "Mistral AI",
+        "added": [
+          "Ministral 14B",
+          "Ministral 8B",
+          "Ministral 3B"
+        ],
+        "removed": []
+      }
+    ]
+  }
+]
