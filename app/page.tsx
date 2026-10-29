@@ -111,17 +111,17 @@ export default function Home() {
           <h2 className="sr-only">Direktori provider</h2>
           {lastUpdated && (
             <p className="mb-3 text-balance text-right text-xs text-mute">
-              Last update {lastUpdated}. Udah stale? DM{" "}
-              <a
-                href="https://instagram.com/raymondchins"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-fog underline decoration-ink-line underline-offset-2 hover:decoration-mute"
-              >
-                @raymondchins
-              </a>{" "}
-              suruh gw update.
-            </p>
+  Last update {lastUpdated}. Udah stale? DM{" "}
+  <a
+    href="https://instagram.com/lutfipelangi"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-medium text-fog underline decoration-ink-line underline-offset-2 hover:decoration-mute"
+  >
+    @lutfipelangi
+  </a>{" "}
+  for update.
+</p>
           )}
           <DirectoryClient items={items} />
         </section>

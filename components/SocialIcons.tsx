@@ -1,4 +1,4 @@
-// Icon sosial Raymond (@raymondchins) buat footer. Path brand resmi dari
+// Icon sosial Maspel (@lutfipelangi) buat footer. Path brand resmi dari
 // simple-icons (di-generate, jangan edit path manual).
 
 const SOCIALS = [

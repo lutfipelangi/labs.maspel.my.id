@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Modal Gratis buat Developer Indonesia — tokengratis.id",
     description:
       "Free tier hosting, database, storage, email, auth, monitoring, domain, sampai kredit startup — dikurasi manual dari halaman resmi vendor.",
-    creator: "@raymondchins",
+    creator: "@lutfipelangi",
   },
 };
 

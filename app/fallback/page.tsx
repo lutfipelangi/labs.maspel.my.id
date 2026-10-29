@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Generator Rantai Fallback — tokengratis.id",
     description:
       "Susun 2–4 provider free tier berurutan, otomatis lompat kalau satu kena rate limit. Generate config siap pakai.",
-    creator: "@raymondchins",
+    creator: "@lutfipelangi",
   },
 };
 

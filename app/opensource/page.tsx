@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Proyek Open Source Indonesia — tokengratis.id",
     description:
       "Direktori proyek open-source buatan developer Indonesia, dikurasi komunitas.",
-    creator: "@raymondchins",
+    creator: "@lutfipelangi",
   },
 };
 

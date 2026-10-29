@@ -58,15 +58,15 @@ export default function RootLayout({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                name: "tokengratis.id",
-                url: "https://tokengratis.id",
+                name: "labs.maspel.my.id",
+                url: "https://labs.maspel.my.id",
                 description:
                   "Direktori free tier & free credits API LLM, di-aggregate dari sumber komunitas.",
                 inLanguage: "id",
                 author: {
                   "@type": "Person",
-                  name: "Raymond Chin",
-                  url: "https://instagram.com/raymondchins",
+                  name: "lutfipelangi",
+                  url: "https://instagram.com/lutfipelangi",
                 },
               }).replace(/</g, "\\u003c"),
             }}

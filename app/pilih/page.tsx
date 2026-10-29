@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Model apa buat gw? — Cari Model AI Gratis | tokengratis.id",
     description:
       "Pilih kebutuhan, context window, dan preferensi rate limit — dapet rekomendasi model AI gratis yang paling cocok, langsung dari data sumber.",
-    creator: "@raymondchins",
+    creator: "@lutfipelangi",
   },
 };
 
