@@ -1,8 +1,7 @@
-# tokengratis.id
-
+# labs.maspel.my.id
 Direktori **free tier & free credits API LLM**, di-aggregate otomatis dari sumber komunitas — plus alat buat milih, masang, dan mantau pilihan itu. Audience Indonesia (antarmuka Bahasa Indonesia). Aggregator transparan — **bukan verifier**.
 
-> Live: **https://tokengratis.id** · Spec: [`docs/PRD.md`](docs/PRD.md) · State terkini: [`docs/STATE.md`](docs/STATE.md)
+> Live: **https://labs.maspel.my.id** · Spec: [`docs/PRD.md`](docs/PRD.md) · State terkini: [`docs/STATE.md`](docs/STATE.md)
 
 Tiap data nampilin **dari mana** + **di-sync kapan** + link ke sumber aslinya. Ga ada klaim "verified" — trust dari transparansi, bukan klaim.
 
@@ -126,6 +125,4 @@ Detail lisensi/ToS tiap sumber: [`docs/PRD.md` §10](docs/PRD.md). Kalau lo pemi
 
 Lihat [`CONTRIBUTING.md`](CONTRIBUTING.md) — terutama cara nambah sumber data baru (bikin adapter di `scripts/adapters/` → wire ke `scripts/sync.mjs` → set merge priority). PR ke `main`; CI jalanin typecheck + build + pipeline self-tests.
 
-## License
 
-[MIT](LICENSE) © Raymond Chin. Lisensi nutup **kode** proyek ini — data agregat tetap milik sumber masing-masing (lihat Attribution).
