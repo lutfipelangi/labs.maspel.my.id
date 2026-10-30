@@ -100,12 +100,9 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex min-h-[44px] items-center gap-2">
           <Spark className="h-4 w-4 text-fog" />
-          <span className="font-serif text-base font-medium tracking-tight text-fog sm:text-lg">
-            <maspel-labs></maspel-labs><span className="font-serif text-base font-medium tracking-tight text-fog sm:text-lg">
-  Maspel Labs
-</span>
-          </span>
-        </Link>
+                <span className="font-serif text-base font-medium tracking-tight text-fog sm:text-lg">
+                  Maspel Labs
+                </span>        </Link>
 
         {/* Center links */}
         {/* gap-5 (bukan 6) di lg biar 5 link muat dengan sisa ruang; balik ke
