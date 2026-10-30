@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Perubahan Data — Model & Provider Baru | tokengratis.id",
     description:
       "Riwayat perubahan data tokengratis.id: model & provider baru, di-generate otomatis tiap malam dari hasil sync.",
-    creator: "@raymondchins",
+    creator: "@lutfipelangi",
   },
 };
 
