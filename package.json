@@ -30,8 +30,11 @@
     "resend": "^6.12.4"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
     "typescript": "^5"
-    },
+  },
   "overrides": {
     "@cloudflare/workers-types": "^5.20261023.1"
   }
